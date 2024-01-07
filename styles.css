@@ -242,7 +242,7 @@ button:hover{
 }
 
 #rsvpPage{
-    padding: 2rem;
+    padding: 1rem;
 }
 #cardInfo{
     background: var(--secondary-color);
@@ -354,7 +354,7 @@ input{
 
 .acceptInfoPayment{
     font-size: .7rem;
-    margin: .8rem;
+    margin: .5rem;
 }
 
 #acceptPage{
