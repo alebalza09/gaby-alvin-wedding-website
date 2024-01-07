@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="format-detection" content="telephone=no">
+    <title>RSVP Gaby & Alvaro Diciembre 2024</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body id="rsvpPage">
+    <div id="cardInfo">
+        <img id="cardInfoImg" src="/assets/flores.png">
+        <h1 id="cardInfoInitials" class="secondary-color">
+            <strong>A</strong>
+            <small>&</small>
+            <strong>G</strong>
+        </h1>
+        <br>
+        <span id="cardInfoDate">
+            28.12.2024
+        </span>
+    </div>
+
+    <form onsubmit="return onSubmit()">
+        <div id="checkboxForm">
+            <div id="checkboxInput">
+                <input type="checkbox" name="yes" onclick="uncheckOther(this)">
+                <span data-translate="yes">
+                    Asistiré
+                </span>
+            </div>
+            <div id="checkboxInput">
+                <input type="checkbox" name="no" onclick="uncheckOther(this)">
+                <span data-translate="no">
+                    No asistiré
+                </span>
+            </div>
+        </div>
+        <br>
+
+        <div id="formNames">
+            <div>
+                <label for="fname"><span data-translate="firstName">Nombre</span> *</label><br>
+                <input type="text" id="fname" name="fname" required><br>
+            </div>
+            <br>
+            <div>
+                <label for="lname"><span data-translate="lastName">Apellido</span> *</label><br>
+                <input type="text" id="lname" name="lname" required><br>
+            </div>
+        </div>
+        <br>
+
+        <div>
+            <label for="email">Email</label><br>
+            <input type="email" id="email" name="email"><br>
+        </div>
+
+        <br>
+        <br>
+        <div id="wrap-plusone">
+            <div id="checkboxInput">
+                <input type="checkbox" name="plusone" onclick="checkTotalGuests()">
+                <span data-translate="guests">
+                    Llevo acompañante(s)
+                </span>
+            </div>
+            <div id="number">
+                <button type="button" id="minus" class="minus" onclick="addGuest(-1)">-</button>
+                <input type="number" id="totalGuests" name="totalGuests" value="1"/>
+                <button type="button" id="plus" class="plus" onclick="addGuest(1)">+</button>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+
+        <button id="submitBtn" class="info-font" type="submit" value="Submit">
+            <span data-translate="send">
+                Enviar
+            </span>
+        </button>
+    </form>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <script>
+         var translations = {
+            'es': {
+                "yes": "Asistiré",
+                "no": "No asistiré",
+                "firstName": "Nombre",
+                "lastName": "Apellido",
+                "guests": "Llevo acompañante(s)",
+                "send": "Enviar",
+            },
+            'de': {
+                "yes": "Ich werde kommen",
+                "no": "Ich werde nicht kommen",
+                "firstName": "Vorname",
+                "lastName": "Name",
+                "guests": "Plus one",
+                "send": "Senden",
+            }
+        };
+        
+        loadTranslations();
+
+        function loadTranslations() {
+            language = localStorage.getItem('language');
+            if (!language) return; 
+            $('[data-translate]').each(function () {
+                var key = $(this).data('translate');
+                $(this).text(translations[language][key]);
+            });
+        }
+
+        function uncheckOther(checkedCheckbox) {
+            let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+            checkboxes.forEach(function(checkbox) {
+                if (checkbox !== checkedCheckbox) {
+                    checkbox.checked = false;
+                }
+            });
+
+            let form = document.forms[0];
+            let rsvp = form.querySelector('input[name="yes"]');
+            if(rsvp.checked) document.getElementById("wrap-plusone").style.display = "flex";
+            else document.getElementById("wrap-plusone").style.display = "none";
+        }
+
+        function onSubmit(){
+            if (!validateForm()) return false;
+            
+            let form = document.forms[0];
+            let firstName = form.querySelector('input[name="fname"]');
+            let lastName = form.querySelector('input[name="lname"]');
+            let email = form.querySelector('input[name="email"]');
+            let rsvp = form.querySelector('input[name="yes"]');
+            let plusone = form.querySelector('input[name="plusone"]');
+            let totalGuests = form.querySelector('input[name="totalGuests"]');
+            
+            let data = {
+                firstName: firstName.value,
+                lastName: lastName.value,
+                email: email.value,
+                rsvp: rsvp.checked,
+                plusone: plusone.value,
+                totalGuests: totalGuests.value
+            }
+
+            sendRSVP(data)
+
+            return false;
+        }
+
+        function validateForm() {
+            let checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        
+            if (!Array.from(checkboxes).some(checkbox => checkbox.checked)) {
+                alert("RSVP es obligatorio, debes seleccionar si/no");
+                return false;
+            }
+
+            return true;
+        }
+
+        function sendRSVP(data) {
+            if(data.rsvp) window.location.href = "accept.html"
+            else window.location.href = "decline.html"
+        }
+
+        function checkTotalGuests(){
+            let totalGuests = document.getElementById("number");
+            if(totalGuests.style.display === "block") totalGuests.style.display = "none";
+            else totalGuests.style.display = "block";
+        }
+
+        function addGuest(value) {
+            let form = document.forms[0];
+            let totalGuests = form.querySelector('input[name="totalGuests"]');
+            let newTotal = parseInt(totalGuests.value) + value;
+            totalGuests.value = newTotal;
+            if(newTotal === 3){
+                document.getElementById("plus").disabled = true;
+            } else {
+                document.getElementById("plus").disabled = false;
+            }
+
+            if(newTotal === 1){
+                document.getElementById("minus").disabled = true;
+            } else {
+                document.getElementById("minus").disabled = false;
+            }
+        }
+
+    </script>
+</body>
+</html>

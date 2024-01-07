@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="format-detection" content="telephone=no">
+    <title>Gaby & Alvaro Diciembre 2024</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="styles.css">
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+</head>
+<body>
+    <svg onclick="handleMobileMenu()" id="menu" xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 50 50" fill="none">
+        <path d="M8.33325 35.9791V33.8958H41.6666V35.9791H8.33325ZM8.33325 26.0416V23.9583H41.6666V26.0416H8.33325ZM8.33325 16.1041V14.0208H41.6666V16.1041H8.33325Z" fill="#433C34"/>
+    </svg>
+
+    <nav id="navMenu">
+        <a data-translate="start" class="nav-link" href="#start"> Start
+        </a>
+        <a class="nav-link" href="#details">
+            Info
+        </a>
+        <a class="nav-link" href="#rsvp">
+            RSVP
+        </a>
+        <a data-translate="contact" class="nav-link" href="#contact">
+            Contacto
+        </a>
+    </nav>
+
+    <div id="language" class="info-font">
+        <a id="eslang" onclick="setLanguage('es')">es</a>
+        <span> / </span>
+        <a id="delang" onclick="setLanguage('de')">de</a>
+    </div>
+
+    <section>
+        <img class="casa-img" src="assets/casa.png" alt="casa">
+        
+        <p class="text-font tertiary-color">
+            Save our date
+        </p>
+
+        <div class="wrap-names">
+            <h1 class="italic-font">
+                Alvaro Alexandrer Navarro Valero
+            </h1>
+            <small class="italic-font and">
+                &
+            </small>
+            <h1 class="italic-font">
+                María Gabriela Suárez Lara
+            </h1>
+        </div>
+
+        <p data-translate="startInfo" class="text-font tertiary-color invitation-text">
+            Tenemos el gusto de invitarles a nuestra boda que se celebrará el 28 de diciembre a las 04:00 pm
+        </p>
+
+        <small class="info-font tertiary-color">
+            Caracas 2024
+        </small>
+    </section>
+
+    <section id="details">
+        <h1 class="text-font date">
+            <strong>
+                28
+            </strong>
+        </h1>
+        <span data-translate="december" class="italic-font month">
+            diciembre
+        </span>
+        <h1 class="text-font date">
+            <strong>
+                2024
+            </strong>
+        </h1>
+
+        <br />
+        <br />
+        <p data-translate="detailsTitle" class="text-title">
+            Nos encantaría contar contigo
+        </p>
+
+        <p data-translate="detailsInfo" class="text-info small">
+            Tu confirmación de asistencia es necesaria antes del 01 de mayo del 2024
+        </p>
+
+        <div class="wrap-initials">
+            <img class="flores-img" src="assets/flores.png" alt="flores">
+            <h1 class="initials secondary-color">
+                <strong>A</strong>
+                <small>&</small>
+                <strong>G</strong>
+            </h1>
+        </div>
+    </section>
+
+    <section id="rsvp">
+        <img src="assets/mapa.png" alt="mapa" class="mapa-img">
+
+        <div class="wrap-schedule text-font">
+            <div class="wrap-hours">
+                <p>
+                    04:00 pm
+                </p>
+                <p>
+                    06:00 pm
+                </p>
+                <p>
+                    12:00 am
+                </p>
+                <p data-translate="address">
+                    Dirección
+                </p>
+            </div>
+            
+            <div class="wrap-info">
+                <p data-translate="wedding">
+                    Ceremonia
+                </p>
+                <p data-translate="dinner">
+                    Cena
+                </p>
+                <p data-translate="lastBus">
+                    Último bus de regreso a La Lagunita
+                </p>
+
+                <p>
+                    <p data-translate="addressLine">
+                        Quinta Casa Campo, ubicada en el sector Caicaguana de El Hatillo, a 12 minutos de la urbanización Lomas de La Lagunita. 
+                    </p>
+                    <iframe id="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31393.648441327165!2d-66.77329696605067!3d10.405202823405467!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c2af8fc608faa67%3A0xc4ffb82ca029ae14!2sCasa%20Campo!5e0!3m2!1sen!2sde!4v1702732906703!5m2!1sen!2sde" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </p>
+            </div>
+        </div>
+
+
+        <button id="rsvpBtn" class="info-font" onclick="rsvp()">
+            RSVP
+        </button>
+    </section>
+
+    <section id="contact">
+        <div class="wrap-contact-title">
+            <svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+                <g clip-path="url(#clip0_35_54)">
+                  <path d="M9.5 19C6.98044 19 4.56408 17.9991 2.78249 16.2175C1.00089 14.4359 0 12.0196 0 9.5C0 6.98044 1.00089 4.56408 2.78249 2.78249C4.56408 1.00089 6.98044 0 9.5 0C12.0196 0 14.4359 1.00089 16.2175 2.78249C17.9991 4.56408 19 6.98044 19 9.5C19 12.0196 17.9991 14.4359 16.2175 16.2175C14.4359 17.9991 12.0196 19 9.5 19ZM10.5058 9.32781C11.164 9.09102 11.7175 8.62962 12.0689 8.02484C12.4203 7.42006 12.5471 6.71068 12.4269 6.02162C12.3068 5.33255 11.9473 4.70798 11.4119 4.25787C10.8765 3.80777 10.1995 3.56099 9.5 3.56099C8.80053 3.56099 8.12349 3.80777 7.58809 4.25787C7.05268 4.70798 6.69324 5.33255 6.57306 6.02162C6.45288 6.71068 6.57966 7.42006 6.93108 8.02484C7.2825 8.62962 7.83602 9.09102 8.49419 9.32781C6.49681 9.80994 4.75 11.6078 4.75 13.0625C4.75 13.5316 4.92219 14.2441 5.9375 14.2441H13.0625C14.0778 14.2441 14.25 13.5316 14.25 13.0625C14.25 11.609 12.5044 9.80875 10.5058 9.32781Z" fill="#71685E"/>
+                </g>
+                <defs>
+                  <clipPath id="clip0_35_54">
+                    <rect width="19" height="19" fill="white"/>
+                  </clipPath>
+                </defs>
+            </svg>
+
+            <span data-translate="contactUs">
+                <strong>
+                    Contáctanos
+                </strong>
+            </span>
+        </div>
+
+        <div class="wrap-contact-info info-font">
+            <span>
+                mgsuarezlara@gmail.com<br />
+                +49 178 958 72 98
+            </span>
+            <span>
+                alvaroanavarro1@gmail.com<br />
+                +49 162 265 45 26
+            </span>
+        </div>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+         var translations = {
+            'es': {
+                "start": "Inicio",
+                "contact": "Contacto",
+                "startInfo": "Tenemos el gusto de invitarles a nuestra boda que se celebrará el 28 de diciembre a las 04:00 pm",
+                "december": "diciembre",
+                "detailsTitle": "Nos encantaría contar contigo",
+                "detailsInfo": "Tu confirmación de asistencia es necesaria antes del 01 de mayo del 2024",
+                "address": "Dirección",
+                "wedding": "Ceremonia",
+                "dinner": "Cena",
+                "lastBus": "Último bus de regreso a La Lagunita",
+                "addressLine": "Quinta Casa Campo, ubicada en el sector Caicaguana de El Hatillo, a 12 minutos de la urbanización Lomas de La Lagunita.",
+                "contactUs": "Contáctanos"
+            },
+            'de': {
+                "start": "Start",
+                "contact": "Kontakt",
+                "startInfo": "Zur unserer Hochzeit am 28. Dezember 2024 laden wir herzlich ein. Quinta Casa de Campo, um 16:00 Uhr.",
+                "december": "dezember",
+                "detailsTitle": "Wir freuen uns, wenn du mit uns feierst",
+                "detailsInfo": "Wir bitten um eine Rückmeldung bis zum 01e. Mai 2024",
+                "address": "Adresse",
+                "wedding": "Trauzeremonie",
+                "dinner": "Abendessen",
+                "lastBus": "Ende",
+                "addressLine": "Quinta Casa Campo",
+                "contactUs": "Kontakt aufnehmen"
+            }
+        };
+
+        // Smooth scrolling when clicking on menu links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        initLang()
+
+        function handleMobileMenu(){
+            let nav = document.getElementById("navMenu");
+            if (nav.style.visibility === "visible") {
+                nav.style.visibility = "hidden";
+                nav.style.opacity = 0;
+            } else {
+                nav.style.visibility = "visible";
+                nav.style.opacity = 1;
+            }
+        }
+
+        function rsvp(){
+            window.location.href = "rsvp.html"
+        }
+
+        function initLang(){
+            lang = localStorage.getItem("language");
+            if(lang) setLanguage(lang);
+            else setLanguage("es");
+        }
+
+        function setLanguage(lang) {
+            loadTranslations(lang);
+            let es = document.getElementById("eslang");
+            let de = document.getElementById("delang");
+            if(lang == "es"){
+                es.style.textDecoration = "underline";
+                de.style.textDecoration = "none";
+            } else {
+                de.style.textDecoration = "underline";
+                es.style.textDecoration = "none";
+            }
+            localStorage.setItem('language', lang);
+        }
+
+        function loadTranslations(language) {
+            $('[data-translate]').each(function () {
+                var key = $(this).data('translate');
+                $(this).text(translations[language][key]);
+            });
+        }
+    </script>
+</body>
+</html>
