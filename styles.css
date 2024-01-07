@@ -18,9 +18,15 @@ body {
     overflow-x: hidden;
 }
 
+p{
+    max-width: 20rem;
+    margin: 0 auto;
+}
+
 .italic-font{
     font-family: 'Tangerine', serif;
     font-weight: 100;
+    font-size: 2rem;
 }
 
 .text-font{
@@ -97,13 +103,25 @@ section {
 }
 
 .casa-img{
-    width: 400px;
+    width: 17.5rem;
     margin: 0 auto;
-    margin-top: 3rem;
 }
 
 .wrap-names{
     margin-top: 1rem;
+}
+
+.invitation-text{
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+}
+
+.details-wedding{
+    margin: .5rem;
+}
+
+.confirm-text{
+    margin-top: 2rem;
 }
 
 h1{
@@ -151,8 +169,7 @@ small{
 
 /* rsvp */
 .mapa-img{
-    margin-top: 3rem;
-    width: 30rem;
+    width: 22rem;
 }
 
 .wrap-schedule{
@@ -178,7 +195,7 @@ small{
 }
 
 #rsvpBtn{
-    margin-top: 5rem;
+    margin-top: 2rem;
 }
 
 button{
@@ -328,11 +345,16 @@ input{
 
 #acceptTitle{
     font-size: 1.5rem;
-    margin: 0;
+    margin: 0 auto;
+}
+
+#declineInfo, #acceptInfo{
+    margin-top: 2rem;
 }
 
 .acceptInfoPayment{
     font-size: .7rem;
+    margin: .8rem;
 }
 
 #acceptPage{
@@ -431,10 +453,6 @@ input{
         font-size: 2rem;
     }
 
-    .invitation-text{
-        margin: 2rem;
-    }
-
     .wrap-initials{
         margin: 0;
     }
@@ -443,10 +461,6 @@ input{
         font-size: 1rem;
     }
 
-    #rsvpBtn{
-        margin-top: 0;
-    }
-    
     .wrap-contact-info{
         gap: 2rem;
         font-size: .7rem;
