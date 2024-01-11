@@ -103,7 +103,7 @@ section {
 }
 
 .casa-img{
-    width: 17.5rem;
+    width: 25.5rem;
     margin: 0 auto;
 }
 
@@ -112,7 +112,7 @@ section {
 }
 
 .invitation-text{
-    margin-top: 2rem;
+    margin-top: 0;
     margin-bottom: 2rem;
 }
 
@@ -334,7 +334,7 @@ input{
 
 /* accept page */
 #acceptImg{
-    width: 16rem;
+    width: 25rem;
     margin: 0 auto;
     display: block;
 }
@@ -370,13 +370,16 @@ input{
 .wrap-payment{
     padding: 1rem;
     background: var(--secondary-color);
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .wrap-info-payment{
     display: flex;
     justify-content: center;
     gap: 2rem;
-    height: 8rem;
+    height: 6rem;
 }
 
 .copy-btn{
@@ -457,6 +460,10 @@ input{
         margin: 0;
     }
 
+    .invitation-text {
+        margin-top: 1rem;
+    }
+
     #rsvpBtn, .wrap-contact-title{
         font-size: 1rem;
     }
@@ -474,4 +481,13 @@ input{
     #map{
         width: 14rem;
     }
+
+    #acceptImg{
+        width: 15rem;
+    }
+
+    #declineInfo, #acceptInfo {
+        margin-top: 1rem;
+    }
+
 }
