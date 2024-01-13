@@ -103,8 +103,12 @@ section {
 }
 
 .casa-img{
-    width: 25.5rem;
+    width: 20.5rem;
     margin: 0 auto;
+}
+
+#eslang, #delang{
+    cursor: pointer;
 }
 
 .wrap-names{
@@ -334,7 +338,7 @@ input{
 
 /* accept page */
 #acceptImg{
-    width: 25rem;
+    width: 18rem;
     margin: 0 auto;
     display: block;
 }
