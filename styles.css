@@ -297,7 +297,7 @@ form{
     width: 2rem;
     height: 2rem;
     padding: 0;
-    background: #f2f2f2;
+    background: #fff;
     border-radius: 4px;
     border: 1px solid #ddd;
     vertical-align: middle;
@@ -320,7 +320,7 @@ input{
     display: none;
 }
 
-#totalGuests{
+#totalCompanions{
     width: 1.5rem;
     text-align: center;
 }
@@ -397,6 +397,22 @@ input{
     gap: 1rem;
     align-items: center;
 } 
+
+.loader {
+    display: none;
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #d4d4d4;
+    border-radius: 50%;
+    width: 1rem;
+    height: 1rem;
+    animation: spin 2s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
 
 /* tablet & mobile */
 @media only screen and (max-width: 720px) {

@@ -25,7 +25,7 @@
         </span>
     </div>
 
-    <form onsubmit="return onSubmit()">
+    <form onsubmit="onSubmit(event)">
         <div id="checkboxForm">
             <div id="checkboxInput">
                 <input type="checkbox" name="yes" onclick="uncheckOther(this)">
@@ -64,14 +64,14 @@
         <br>
         <div id="wrap-plusone">
             <div id="checkboxInput">
-                <input type="checkbox" name="plusone" onclick="checkTotalGuests()">
+                <input type="checkbox" name="plusone" onclick="checkTotalCompanions()">
                 <span data-translate="guests">
                     Llevo acompañante(s)
                 </span>
             </div>
             <div id="number">
                 <button type="button" id="minus" class="minus" onclick="addGuest(-1)">-</button>
-                <input type="number" id="totalGuests" name="totalGuests" value="1"/>
+                <input disabled type="number" id="totalCompanions" name="totalCompanions" value="1"/>
                 <button type="button" id="plus" class="plus" onclick="addGuest(1)">+</button>
             </div>
         </div>
@@ -80,9 +80,10 @@
         <br>
 
         <button id="submitBtn" class="info-font" type="submit" value="Submit">
-            <span data-translate="send">
+            <span id="sendText" data-translate="send">
                 Enviar
             </span>
+            <div id="loadingSpinner" class="loader"></div>
         </button>
     </form>
 
@@ -129,33 +130,39 @@
 
             let form = document.forms[0];
             let rsvp = form.querySelector('input[name="yes"]');
-            if(rsvp.checked) document.getElementById("wrap-plusone").style.display = "flex";
-            else document.getElementById("wrap-plusone").style.display = "none";
+            if(rsvp.checked) {
+                document.getElementById("wrap-plusone").style.display = "flex";
+                document.getElementById("totalCompanions").value = 1;
+                document.getElementById("minus").disabled = true;
+                document.getElementById("plus").disabled = false;
+            } else document.getElementById("wrap-plusone").style.display = "none";
+            checkTotalCompanions();
         }
 
-        function onSubmit(){
+        async function onSubmit(e){
+            e.preventDefault();
             if (!validateForm()) return false;
-            
+
+            document.getElementById('sendText').style.display = 'none';
+            document.getElementById('loadingSpinner').style.display = 'block';
+
             let form = document.forms[0];
             let firstName = form.querySelector('input[name="fname"]');
             let lastName = form.querySelector('input[name="lname"]');
             let email = form.querySelector('input[name="email"]');
             let rsvp = form.querySelector('input[name="yes"]');
             let plusone = form.querySelector('input[name="plusone"]');
-            let totalGuests = form.querySelector('input[name="totalGuests"]');
+            let totalCompanions = form.querySelector('input[name="totalCompanions"]');
             
             let data = {
                 firstName: firstName.value,
                 lastName: lastName.value,
                 email: email.value,
                 rsvp: rsvp.checked,
-                plusone: plusone.value,
-                totalGuests: totalGuests.value
+                plusone: plusone.checked,
+                totalCompanions: rsvp.checked? totalCompanions.value: 0
             }
-
-            sendRSVP(data)
-
-            return false;
+            await sendRSVP(data)
         }
 
         function validateForm() {
@@ -170,21 +177,47 @@
         }
 
         function sendRSVP(data) {
-            if(data.rsvp) window.location.href = "accept.html"
-            else window.location.href = "decline.html"
+            fetch('http://localhost:3000/api/rsvp', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data),
+            })
+            .then(response => response.json())
+            .then(result => {
+                document.getElementById('loadingSpinner').style.display = 'none';
+                document.getElementById('sendText').style.display = 'block';
+
+                if(data.rsvp) window.location.href = "accept.html"
+                else window.location.href = "decline.html"
+            })
+            .catch(error => {
+                language = localStorage.getItem('language');
+                document.getElementById('loadingSpinner').style.display = 'none';
+                document.getElementById('sendText').style.display = 'block';
+                if(language == 'de'){
+                    alert("Es ist ein Fehler aufgetreten, bitte versuchen Sie es erneut");
+                } else {
+                    alert("Ha ocurrido un error, intenta nuevamente");
+                }
+                console.error('Error:', error);
+            });
         }
 
-        function checkTotalGuests(){
-            let totalGuests = document.getElementById("number");
-            if(totalGuests.style.display === "block") totalGuests.style.display = "none";
-            else totalGuests.style.display = "block";
+        function checkTotalCompanions(){
+            let totalCompanions = document.getElementById("number");
+            let form = document.forms[0];
+            let plusone = form.querySelector('input[name="plusone"]');
+            if(plusone.checked) totalCompanions.style.display = "block";
+            else totalCompanions.style.display = "none";
         }
 
         function addGuest(value) {
             let form = document.forms[0];
-            let totalGuests = form.querySelector('input[name="totalGuests"]');
-            let newTotal = parseInt(totalGuests.value) + value;
-            totalGuests.value = newTotal;
+            let totalCompanions = form.querySelector('input[name="totalCompanions"]');
+            let newTotal = parseInt(totalCompanions.value) + value;
+            totalCompanions.value = newTotal;
             if(newTotal === 3){
                 document.getElementById("plus").disabled = true;
             } else {
