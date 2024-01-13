@@ -189,8 +189,8 @@
                 document.getElementById('loadingSpinner').style.display = 'none';
                 document.getElementById('sendText').style.display = 'block';
 
-                if(data.rsvp) window.location.href = "/accept.html"
-                else window.location.href = "/decline.html"
+                if(data.rsvp) window.location.href = "accept.html"
+                else window.location.href = "decline.html"
             })
             .catch(error => {
                 language = localStorage.getItem('language');
