@@ -89,7 +89,7 @@
         </p>
 
         <p data-translate="detailsInfo" class="text-info small confirm-text">
-            Tu confirmación de asistencia es necesaria antes del 01 de mayo del 2024
+            Por favor haz click en el botón de "RSVP" para confirmar tu asistencia.
         </p>
 
         <div class="wrap-initials">
@@ -102,8 +102,12 @@
         </div>
     </section>
 
-    <section id="rsvp">
+    <section id="schedule">
         <img src="assets/mapa.png" alt="mapa" class="mapa-img">
+
+        <p class="schedule-title" data-translate="schedule">
+            Itinerario
+        </p>
 
         <div class="wrap-schedule text-font">
             <div class="wrap-hours">
@@ -140,10 +144,80 @@
             </div>
         </div>
 
+        <div class="wrap-schedule text-font">
+            <div class="wrap-hours">
+                <p class="details-wedding" data-translate="transport">
+                    Transporte
+                </p>
+            </div>
+            
+            <div class="wrap-info">
+                <p class="details-wedding" data-translate="transportDetails">
+                    Desde el Centro Comercial La Lagunita los estará esperando nuestra Wedding Planner para tomar los autobuses que saldrán cada 25min hasta el lugar.
+                </p>
 
+                <p class="details-wedding important-info" data-translate="importantInfo">
+                    Importante: la ceremonia debe empezar puntual a las 4:00pm.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="hotel">
+        <br>
+        <p class="hotel-title">
+            <img class="icon" src="assets/hotel_icon.svg" alt="">
+            <span data-translate="hotel">
+                Hospedaje
+            </span>
+        </p>
+        <p data-translate="hotelInfo1">
+            El hotel donde vamos a quedarnos esa noche es el Verticem en Oripoto.
+        </p>
+        <br>
+        <p>
+            <a target="_blank" rel="noopener noreferrer" href="https://verticemspace.com/">https://verticemspace.com/</a>
+        </p>
+        <br>
+        <p>
+            <iframe id="hotelMap" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.0704036874654!2d-66.83817782536411!3d10.415983189711724!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8c2af7d735e21f3b%3A0x6e77444ea032a162!2sVerticem%20Space%20Hotel%20Boutique%20Bar%20Restaurant!5e0!3m2!1sen!2sde!4v1719768569956!5m2!1sen!2sde" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </p>
+        <br>
+        <br>
+        <p data-translate="hotelInfo2">
+            Sólo tienen 18 habitaciones así que si desean quedarse allí también, les recomendamos reservar lo más pronto posible. Pueden escribirle a la administración indicando que son invitados de nosotros.
+        </p>
+        <br>
+
+        <p data-translate="hotelLocation">
+            El trayecto desde el hotel hasta el C.C. Lomas de La Lagunita es de 10 minutos.
+        </p>
+        <br>
+        <br>
+        <br>
+
+        <p class="hotel-title">
+            <img class="icon" src="assets/gift_icon.svg" alt="">
+            <span data-translate="gifts">
+                Regalos
+            </span>
+        </p>
+
+        <p data-translate="giftsInfo">
+            Su presencia es el regalo más importante. Sin embargo, cualquier regalo lo recibiremos felizmente ese día o en nuestras cuentas bancarias.
+        </p>
+    </section>
+
+    <section id="rsvp">
+        <br>
+        <p data-translate="rsvpInfo">
+            Haz click y sigue los pasos para confirmar tu asistencia
+        </p>
         <button id="rsvpBtn" class="info-font" onclick="rsvp()">
             RSVP
         </button>
+        <br>
+        <br>
     </section>
 
     <section id="contact">
@@ -186,13 +260,23 @@
                 "startInfo": "Tenemos el gusto de invitarles a nuestra boda que se celebrará el 28 de diciembre a las 04:00 pm",
                 "december": "diciembre",
                 "detailsTitle": "Nos encantaría contar contigo",
-                "detailsInfo": "Tu confirmación de asistencia es necesaria antes del 01 de mayo del 2024",
+                "detailsInfo": 'Por favor haz click en el botón de "RSVP" para confirmar tu asistencia.',
                 "address": "Dirección",
                 "wedding": "Ceremonia",
                 "dinner": "Cena",
                 "lastBus": "Último bus de regreso a La Lagunita",
                 "addressLine": "Quinta Casa Campo, ubicada en el sector Caicaguana de El Hatillo, a 12 minutos de la urbanización Lomas de La Lagunita.",
-                "contactUs": "Contáctanos"
+                "contactUs": "Contáctanos",
+                "schedule": "Itinerario",
+                "transport": "Transporte",
+                "transportDetails": "Desde el Centro Comercial La Lagunita los estará esperando nuestra Wedding Planner para tomar los autobuses que saldrán cada 25min hasta el lugar.",
+                "hotel": "Hospedaje",
+                "hotelInfo1": "El hotel donde vamos a quedarnos esa noche es el Verticem en Oripoto.",
+                "hotelInfo2": "Sólo tienen 18 habitaciones así que si desean quedarse allí también, les recomendamos reservar lo más pronto posible. Pueden escribirle a la administración indicando que son invitados de nosotros.",
+                "hotelLocation": "El trayecto desde el hotel hasta el C.C. Lomas de La Lagunita es de 10 minutos.",
+                "gifts": "Regalos",
+                "giftsInfo": "Su presencia es el regalo más importante. Sin embargo, cualquier regalo lo recibiremos felizmente ese día o en nuestras cuentas bancarias.",
+                "rsvpInfo": "Haz click y sigue los pasos para confirmar tu asistencia"
             },
             'de': {
                 "start": "Start",
@@ -200,13 +284,23 @@
                 "startInfo": "Zur unserer Hochzeit am 28. Dezember 2024 laden wir herzlich ein. Quinta Casa de Campo, um 16:00 Uhr.",
                 "december": "dezember",
                 "detailsTitle": "Wir freuen uns, wenn du mit uns feierst",
-                "detailsInfo": "Wir bitten um eine Rückmeldung bis zum 01e. Mai 2024",
+                "detailsInfo": 'Bitte klicke auf die "RSVP", um deine Zusage zu bestätigen.',
                 "address": "Adresse",
                 "wedding": "Trauzeremonie",
                 "dinner": "Abendessen",
                 "lastBus": "Ende",
                 "addressLine": "Quinta Casa Campo",
-                "contactUs": "Kontakt aufnehmen"
+                "contactUs": "Kontakt aufnehmen",
+                "schedule": "Zeitplan",
+                "transport": "Hinfahrt",
+                "transportDetails": "Unser Wedding Planner erwartet euch im La Lagunita Mall, um euch mit den Bussen, zum Veranstaltungsort zu bringen.",
+                "hotel": "Unterkunft",
+                "hotelInfo1": "Das Hotel, in dem wir in dieser Nacht übernachten werden, ist das Verticem in Oripoto.",
+                "hotelInfo2": "Es hat nur 18 Zimmer, wenn ihr auch dort übernachten wollt, empfehlen wir euch, so bald wie möglich zu buchen.",
+                "hotelLocation": "Die Fahrt vom Hotel zum Einkaufszentrum dauert 10 Minuten.",
+                "gifts": "Geschenke",
+                "giftsInfo": "Eure Anwesenheit ist das wichtigste Geschenk. Wir freuen uns jedoch über jedes Geschenk, das wir am Tag der Feier erhalten oder auf unsere Konten einzahlen.",
+                "rsvpInfo": "Klicke auf und befolge die Schritte, um deine Anwesenheit zu bestätigen"
             }
         };
 
