@@ -198,7 +198,7 @@ small{
 #map {
     border: none;
     border-radius: 1rem;
-    height: 6rem;
+    height: 4rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
 }
@@ -475,7 +475,7 @@ input{
     }
 
     .mapa-img{
-        width: 23rem;
+        width: 21rem;
         margin-top: 0;
     }
 
@@ -534,7 +534,7 @@ input{
     }
 
     #map{
-        width: 18rem;
+        width: 16rem;
     }
 
     #acceptImg{
